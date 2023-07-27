@@ -1,6 +1,6 @@
 def registry = 'https://dimlav.jfrog.io'
 def imageName = 'dimlav.jfrog.io/aman-app-docker-local/springboot'
-def version   = '1.0.0'
+def version   = '1.0.1'
 pipeline {
   agent {
     node {
