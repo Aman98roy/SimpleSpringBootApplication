@@ -72,6 +72,14 @@ pipeline {
             }
         }
     }
+
+     stage (" Deploy application on Kubernetes "){
+        steps {
+            script {
+                sh './deploy.sh'
+            }
+        }
+    }
   
   }
 
