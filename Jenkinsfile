@@ -53,12 +53,12 @@ pipeline {
       steps {
         script {
           echo '<--------------- Jar Publish Started --------------->'
-          def server = Artifactory.newServer url: registry + "/artifactory", credentialsId: "jrog-cred"
+          def server = Artifactory.newServer url:registry+"/artifactory", credentialsId: "jrog-cred"
           def properties = "buildid=${env.BUILD_ID},commitid=${GIT_COMMIT}"
           def uploadSpec = """{
           "files": [
             {
-              "pattern": "target/*.jar", // Specifies only JAR files in the target directory.
+              "pattern": "target/*.jar",
               "target": "libs-release-local/",
               "flat": "false",
               "props": "${properties}",
