@@ -17,7 +17,7 @@ spec:
       - name: docker-cred-jfrog
       containers:
       - name:  aman-rtp
-        image: dimlav.jfrog.io/aman-app-docker-local/springboot:1.0.0
+        image: dimlav.jfrog.io/aman-app-docker-local/springboot:1.0.1
         imagePullPolicy: Always
         ports:
         - containerPort: 8000
