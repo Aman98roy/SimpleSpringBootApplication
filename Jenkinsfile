@@ -1,3 +1,4 @@
+def registry = 'https://dimlav.jfrog.io'
 pipeline {
   agent {
     node {
@@ -47,7 +48,7 @@ pipeline {
     //     }
     //   }
     // }
-    def registry = 'https://dimlav.jfrog.io'
+
     stage("Jar Publish") {
       steps {
         script {
