@@ -14,7 +14,7 @@ pipeline {
     stage("build") {
       steps {
         echo "----------- build started ----------"
-        sh 'mvn clean package -Dmaven.test.skip=true'
+        sh 'mvn clean deploy -Dmaven.test.skip=true'
         echo "----------- build complted ----------"
       }
     }
@@ -49,31 +49,7 @@ pipeline {
     //   }
     // }
 
-     stage("Jar Publish") {
-        steps {
-            script {
-                    echo '<--------------- Jar Publish Started --------------->'
-                     def server = Artifactory.newServer url:registry+"/artifactory" ,  credentialsId:"jfrog-cred"
-                     def properties = "buildid=${env.BUILD_ID},commitid=${GIT_COMMIT}";
-                     def uploadSpec = """{
-                          "files": [
-                            {
-                              "pattern": "target/*.jar",
-                              "target": "dimlav-libs-release-local/",
-                              "flat": "false",
-                              "props" : "${properties}",
-                              "exclusions": [ "*.original"]
-                            }
-                         ]
-                     }"""
-                     def buildInfo = server.upload(uploadSpec)
-                     buildInfo.env.collect()
-                     server.publishBuildInfo(buildInfo)
-                     echo '<--------------- Jar Publish Ended --------------->'  
-            
-            }
-        }   
-    }   
+  
   }
 
 }
