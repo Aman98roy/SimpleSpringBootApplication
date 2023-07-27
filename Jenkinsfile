@@ -59,7 +59,7 @@ pipeline {
                           "files": [
                             {
                               "pattern": "target/*.jar",
-                              "target": "dimlav-libs-release-local/{1}",
+                              "target": "dimlav-libs-release-local/",
                               "flat": "false",
                               "props" : "${properties}",
                               "exclusions": [ "*.original"]
